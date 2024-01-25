@@ -1,0 +1,101 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lolpoppyus/Roblox-Lua/master/Pop%20UI%20Lib", true))()
+
+local ui = library:Tab("Beat up dummies simulator")
+
+ui:Textbox2("Reach item", "input here", function(arg)
+    for i,v in pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren()) do
+		if v:isA("Tool") then
+			local a = Instance.new("SelectionBox",v.Handle)
+			v.Handle.Massless = true
+			v.Handle.Transparency = 1
+			a.Adornee = v.Handle
+			v.Handle.Size = Vector3.new(arg, arg, arg)
+			local selectionBox = Instance.new("SelectionBox",v.Handle)
+			selectionBox.Adornee = v.Handle
+			selectionBox.Color3 = Color3.new(0, 0.313725, 0.47451)
+		end
+	end
+end)
+
+ui:Button("Kill all npcs", function()
+    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 112412400000)
+sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", 112412400000)
+for i,d in pairs(game.Workspace:GetDescendants()) do
+    if d.ClassName == 'Humanoid' and d.Parent.Name ~= game.Players.LocalPlayer.Name then
+        d.Health = 0
+    end
+end
+end)
+
+ui:Dropdown("Get weapon", {"Gauntlet","Branch","Basic sword","Bat","Boots","Bottle","Stick","Lightsaber","Bat 2"} , function(arg)
+ if arg == "Gauntlet" then
+   last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(211, 183, 65) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+    end
+ if arg == "Branch" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-187, 243, 11) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+if arg == "Basic sword" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 183, -132) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+if arg == "Bat" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-316, 330, -149) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+if arg == "Boots" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-280, 200, -66) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+  if arg == "Bottle" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(12, 347, 87) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+  if arg == "Stick" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(274, 338, -5) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+  if arg == "Lightsaber" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(24, 347, -248) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+  if arg == "Bat 2" then
+    last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(197, 223, 24) 
+    wait(0.1) 
+    game. Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy 
+  end
+end)
+
+ui:Textbox2("Godmode", "Put you full username", function(arg)
+   for i = 1, 20 do
+local args = {
+    [1] = workspace:WaitForChild(arg),
+    [2] = 123
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GuardUp"):FireServer(unpack(args))
+end
+end)
+
+
+ui:Button("Endless blows", function()
+    game.Players.LocalPlayer.leaderstats.Blows.Value = 1e99 * 1e99 * 1e999
+end)
